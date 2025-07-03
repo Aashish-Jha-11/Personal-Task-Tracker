@@ -1,0 +1,360 @@
+.task-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: var(--card-shadow);
+}
+
+.task-item.completed {
+  opacity: 0.7;
+  background: var(--completed-bg);
+}
+
+.task-item.overdue {
+  border-left: 4px solid var(--error-color);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.task-title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.complete-btn {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.complete-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.complete-btn.completed {
+  background: var(--success-color);
+  border-color: var(--success-color);
+  color: white;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.delete-btn:hover {
+  background: var(--error-color);
+  color: white;
+}
+
+.task-description {
+  margin: 10px 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.task-item.completed .task-description {
+  color: var(--text-muted);
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.task-info {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.priority-badge,
+.category-badge,
+.due-date-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.priority-badge {
+  color: white;
+  text-transform: capitalize;
+}
+
+.category-badge {
+  background: var(--category-bg);
+  color: var(--category-color);
+  border: 1px solid var(--category-border);
+}
+
+.due-date-badge {
+  background: var(--due-date-bg);
+  color: var(--due-date-color);
+  border: 1px solid var(--due-date-border);
+}
+
+.due-date-badge.overdue {
+  background: var(--error-bg);
+  color: var(--error-color);
+  border-color: var(--error-color);
+}
+
+.due-date-badge.due-today {
+  background: var(--warning-bg);
+  color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.due-date-badge.due-soon {
+  background: var(--info-bg);
+  color: var(--info-color);
+  border-color: var(--info-color);
+}
+
+.due-date-badge.due-later {
+  background: var(--success-bg);
+  color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.task-dates {
+  text-align: right;
+}
+
+.created-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.delete-modal-content {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.delete-modal-content h4 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+}
+
+.delete-modal-content p {
+  margin: 0 0 25px 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.delete-modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.confirm-delete-btn {
+  background: var(--error-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-delete-btn:hover {
+  background: var(--error-hover);
+  transform: translateY(-2px);
+}
+
+.cancel-delete-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-delete-btn:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Desktop responsiveness */
+@media (min-width: 1200px) {
+  .task-item {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .task-title {
+    font-size: 1.2rem;
+  }
+  
+  .task-description {
+    font-size: 1rem;
+  }
+  
+  .complete-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .priority-badge,
+  .category-badge,
+  .due-date-badge {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .created-date {
+    font-size: 0.9rem;
+  }
+  
+  .delete-modal-content {
+    max-width: 500px;
+    padding: 40px;
+  }
+  
+  .delete-modal-content h4 {
+    font-size: 1.5rem;
+  }
+  
+  .delete-modal-content p {
+    font-size: 1.1rem;
+  }
+  
+  .confirm-delete-btn,
+  .cancel-delete-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .task-item {
+    padding: 30px;
+  }
+  
+  .task-meta {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .task-item {
+    padding: 15px;
+  }
+  
+  .task-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .task-title-section {
+    width: 100%;
+  }
+  
+  .task-actions {
+    align-self: flex-end;
+  }
+  
+  .task-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .task-dates {
+    text-align: left;
+  }
+  
+  .delete-modal-actions {
+    flex-direction: column;
+  }
+}
